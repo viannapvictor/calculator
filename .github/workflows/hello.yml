@@ -1,0 +1,14 @@
+name: Hello Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  hello-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Exibir mensagem de início
+        run: echo "Pipeline iniciado com sucesso"
