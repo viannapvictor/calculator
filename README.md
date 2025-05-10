@@ -65,5 +65,3 @@ curl -X POST "http://localhost:8080/api/v1/add?a=10&b=5"
 ```bash
 mvn test
 ```
-
-Executa os testes unitários (`CalculatorServiceTest`) que validam as quatro operações e cenários de exceção.
