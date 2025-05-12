@@ -12,8 +12,6 @@ Implementar uma API REST minimalista em **Spring Boot 3 (Java 17)** que expo
 | **Spring Boot** | 3.x                                 |
 | **Maven**       | 3.9.x                               |
 
-> O *parent* do Spring Boot gerencia todas as versões das dependências; nenhuma precisa ser declarada manualmente (exceto Spring Doc se optar por Swagger).
-
 ## Como Executar Localmente
 
 ```bash
