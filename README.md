@@ -61,3 +61,6 @@ curl -X POST "http://localhost:8080/api/v1/add?a=10&b=5"
 ```bash
 mvn test
 ```
+```bash
+## Teste para não rodar a action do CI
+```
