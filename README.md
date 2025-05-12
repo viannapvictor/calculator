@@ -9,8 +9,6 @@ Implementar uma API REST minimalista em **Spring Boot 3 (Java 17)** que expo
 | Camada          | Versão                              |
 | --------------- | ----------------------------------- |
 | **JDK**         | 17 ou superior                      |
-| **Spring Boot** | 3.x                                 |
-| **Maven**       | 3.9.x                               |
 
 ## Como Executar Localmente
 
@@ -25,7 +23,7 @@ $ mvn clean install
 # 3. Execute a aplicação
 $ mvn spring-boot:run                     # (modo dev – hot reload)
 #   ou
-$ java -jar target/calculator-*.jar       # (jar empacotado)
+$ java -jar target/calculator-*.jar
 
 # 4. Acesse
 http://localhost:8081
