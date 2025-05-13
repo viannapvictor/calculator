@@ -39,3 +39,17 @@ jobs:
     steps:
       - name: Executar testes
         run: mvn test
+        
+  package:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: Empacotar projeto (.jar)
+        run: mvn package -DskipTests
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build, test]
+    steps:
+      - name: Mensagem de deploy
+        run: echo "🚀 Deploy realizado com sucesso"
