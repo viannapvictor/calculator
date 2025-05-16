@@ -21,7 +21,7 @@ jobs:
           java-version: ${{ inputs.java-version }}
 
       - name: Verificar estilo de código (Checkstyle)
-        run: nmvn checkstyle:check -Dcheckstyle.failOnViolation=false
+        run: mvn checkstyle:check -Dcheckstyle.failOnViolation=false
 
   test:
     runs-on: ubuntu-latest
