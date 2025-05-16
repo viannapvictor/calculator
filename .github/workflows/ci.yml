@@ -71,3 +71,29 @@ jobs:
     steps:
       - name: Mensagem de deploy
         run: echo "🚀 Deploy realizado com sucesso"
+
+  security_scan:
+    name: Security Scan (CodeQL)
+    needs: build
+    runs-on: ubuntu-latest
+
+    permissions:
+      security-events: write
+
+    strategy:
+      matrix:
+        language: ['java']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Inicializa CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+
+      - name: Autobuild project
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Analise CodeQL
+        uses: github/codeql-action/analyze@v3
