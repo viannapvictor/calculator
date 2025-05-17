@@ -1,3 +1,5 @@
+[![Build status](https://github.com/viannapvictor/devcalc-api/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/viannapvictor/devcalc-api/actions/workflows/ci.yml)
+
 # Calculator API
 
 ## Objetivo
@@ -67,4 +69,15 @@ mvn test
 
 ```bash
 ## Caso o workflow falhe, checar a falha pela interface do github em action e checar em qual ponto falhou corrigindo-o.
+```
+
+### Observações sobre a execução do pipeline
+
+Realizei duas execuções do workflow **ci.yml**:  
+• **Automática** (`event: push`) — disparada assim que fiz *push* no branch `master` dentro de arquivos no diretório src.  
+• **Manual** (`event: workflow_dispatch`) — iniciada pelo botão **Run workflow** manualmente.
+```
+Percebi que o gatilho manual é ideal para diagnósticos rápidos ou quando quero testar apenas partes específicas do 
+pipeline, enquanto o gatilho por push garante verificação contínua de cada commit. O badge de status no topo do 
+README reflete sempre o resultado da execução mais recente, independentemente do gatilho utilizado.
 ```
