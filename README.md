@@ -64,3 +64,7 @@ mvn test
 ```bash
 ## Teste para não rodar a action do CI
 ```
+
+```bash
+## Caso o workflow falhe, checar a falha pela interface do github em action e checar em qual ponto falhou corrigindo-o.
+```
