@@ -43,4 +43,4 @@ jobs:
           java-version: ${{ inputs.java-version }}
 
       - name: Executar testes automatizados
-        run: xmvn test
+        run: mvn test
