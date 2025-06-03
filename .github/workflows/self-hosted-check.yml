@@ -1,0 +1,34 @@
+name: Validação Runner Local
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - dev
+      - main
+
+jobs:
+  checagem-local:
+    runs-on: self-hosted
+    steps:
+      - name: Verificar sistema
+        run: |
+          echo "=== Informações do Runner ==="
+          uname -a
+
+      - name: Verificar Java
+        run: java -version
+
+      - name: Instalar software adicional (curl)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt update
+          sudo apt install -y curl
+
+      - name: Verificar curl
+        run: |
+          if command -v curl >/dev/null 2>&1; then
+            echo "curl instalado com sucesso."
+          else
+            echo "curl não está instalado."
+            exit 1
