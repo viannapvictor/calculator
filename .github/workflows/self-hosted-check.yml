@@ -27,8 +27,5 @@ jobs:
 
       - name: Verificar curl
         run: |
-          if command -v curl >/dev/null 2>&1; then
-            echo "curl instalado com sucesso."
-          else
-            echo "curl não está instalado."
-            exit 1
+          echo "Versão do curl:"
+          curl --version || { echo "curl não encontrado após instalação."; exit 1; }
