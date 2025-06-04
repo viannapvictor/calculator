@@ -16,6 +16,13 @@ jobs:
           echo "=== Informações do Runner ==="
           uname -a
 
+      - name: Instalar Java 17
+        run: |
+          sudo apt update
+          sudo apt install -y openjdk-17-jdk
+          echo "JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64" >> $GITHUB_ENV
+          echo "PATH=$PATH:/usr/lib/jvm/java-17-openjdk-amd64/bin" >> $GITHUB_ENV
+
       - name: Verificar Java
         run: java -version
 
