@@ -6,4 +6,6 @@ public interface ICalculatorService {
     double subtract(int a, int b);
     double multiply(int a, int b);
     double divide(int a, int b);
+    double sqrt(int a);
+
 }

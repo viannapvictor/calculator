@@ -2,6 +2,7 @@ package br.infnet.edu.calculator.controller;
 
 import br.infnet.edu.calculator.dto.ApiResponse;
 import br.infnet.edu.calculator.dto.OperationRequestDTO;
+import br.infnet.edu.calculator.dto.SqrtRequestDTO;
 import br.infnet.edu.calculator.service.CalculatorService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -43,4 +44,10 @@ public class CalculatorController {
 
         return ResponseEntity.ok(ApiResponse.ok(service.divide(req.getA(), req.getB())));
     }
+    @PostMapping("/sqrt")
+    public ResponseEntity<ApiResponse<Double>> sqrt(
+            @Valid @ModelAttribute SqrtRequestDTO req) {
+        return ResponseEntity.ok(ApiResponse.ok(service.sqrt(req.getA())));
+    }
+
 }

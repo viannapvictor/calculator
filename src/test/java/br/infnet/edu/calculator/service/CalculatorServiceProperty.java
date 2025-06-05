@@ -35,4 +35,9 @@ public class CalculatorServiceProperty {
         double expected = (double) a / b;
         assertEquals(expected, service.divide(a, b));
     }
+    @Property
+    void sqrt_shouldReturnCorrectRoot(@ForAll @IntRange(min = 0, max = 10000) int x) {
+        double expected = Math.sqrt(x);
+        assertEquals(expected, service.sqrt(x));
+    }
 }

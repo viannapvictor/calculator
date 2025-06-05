@@ -27,4 +27,9 @@ public class CalculatorService implements ICalculatorService {
         if (b == 0) throw new ArithmeticException(ErrorCode.DIVIDE_BY_ZERO.getMessage());
         return (double) a / b;
     }
+    @Override
+    public double sqrt(int a) {
+        if (a < 0) throw new ArithmeticException("Não é possível calcular a raiz quadrada de número negativo.");
+        return Math.sqrt(a);
+    }
 }

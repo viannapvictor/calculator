@@ -46,4 +46,25 @@ class CalculatorServiceTest {
         );
         assertEquals("Divisor não pode ser zero.", ex.getMessage());
     }
+
+    @Test
+    void sqrt_shouldReturnCorrectRoot() {
+        double result = service.sqrt(16);
+        assertEquals(4.0, result);
+    }
+
+    @Test
+    void sqrt_ofZero_shouldReturnZero() {
+        double result = service.sqrt(0);
+        assertEquals(0.0, result);
+    }
+
+    @Test
+    void sqrt_negative_shouldThrowArithmeticException() {
+        ArithmeticException ex = assertThrows(
+                ArithmeticException.class,
+                () -> service.sqrt(-9)
+        );
+        assertEquals("Não é possível calcular a raiz quadrada de número negativo.", ex.getMessage());
+    }
 }
