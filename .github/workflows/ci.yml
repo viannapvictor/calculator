@@ -70,13 +70,6 @@ jobs:
       - name: Empacotar projeto (.jar)
         run: mvn package
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: [ build, lint_and_test ]
-    steps:
-      - name: Mensagem de deploy
-        run: echo "🚀 Deploy realizado com sucesso"
-
   security_scan:
     name: Security Scan (CodeQL)
     needs: build
@@ -102,3 +95,26 @@ jobs:
 
       - name: Analise CodeQL
         uses: github/codeql-action/analyze@v3
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build, lint_and_test]
+    if: github.ref == 'refs/heads/dev' || github.ref == 'refs/heads/master'
+    environment:
+      name: ${{ github.ref == 'refs/heads/master' && 'prod' || 'dev' }}
+
+    steps:
+      - name: Mostrar ambiente
+        run: |
+          echo "Deploy para o ambiente: ${{ github.ref == 'refs/heads/master' && 'prod' || 'dev' }}"
+
+      - name: Simular deploy
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/master" ]; then
+            echo "🔒 Deployando para PRODUÇÃO"
+            echo "Token de produção (mascarado): ${{ secrets.PROD_TOKEN }}"
+          else
+            echo "🚀 Deployando para DEV"
+            echo "URL de destino: ${{ vars.DEV_URL }}"
+            echo "Ambiente: ${{ vars.ENV }}"
+          fi
